@@ -70,7 +70,7 @@ yt-dlp
 
 ```
 youtube-playlist-downloader/
-├── downloader.py          # Script principal para baixar playlists
+├── main.py                # Script principal para baixar playlists
 ├── requirements.txt       # Lista de dependências do projeto
 └── README.md              # Documentação do projeto
 ```
