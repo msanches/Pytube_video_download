@@ -70,20 +70,16 @@ def baixar_playlist_ou_video(url):
             ydl.download([url])
             print("Download concluído!")
 
-        # Criar o arquivo README.md
+        # Criar o arquivo README.md se for playlist
         if is_playlist:
             readme_path = os.path.join(caminho_destino, 'README.md')
             with open(readme_path, 'w', encoding='utf-8') as readme_file:
                 readme_file.write(f"# Informações do Conteúdo\n\n")
-                if is_playlist:
-                    readme_file.write(f"**Nome da Playlist:** {playlist_title}\n\n")
-                    readme_file.write(f"**Link da Playlist:** [{playlist_url}]({playlist_url})\n\n")
-                    readme_file.write(f"**Vídeos Baixados:**\n\n")
-                    for i, video_title in enumerate(video_list, start=1):
-                        readme_file.write(f"{i}. {video_title}\n")
-                else:
-                    readme_file.write(f"**Título do Vídeo:** {video_list[0]}\n\n")
-                    readme_file.write(f"**Link do Vídeo:** [{playlist_url}]({playlist_url})\n\n")
+                readme_file.write(f"**Nome da Playlist:** {playlist_title}\n\n")
+                readme_file.write(f"**Link da Playlist:** [{playlist_url}]({playlist_url})\n\n")
+                readme_file.write(f"**Vídeos Baixados:**\n\n")
+                for i, video_title in enumerate(video_list, start=1):
+                    readme_file.write(f"{i}. {video_title}\n")
 
             print(f"Arquivo README.md criado em: {readme_path}")
 
