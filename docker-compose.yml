@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  youtube-downloader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: youtube-downloader
+    volumes:
+      - /media/devmon/Seagate Backup Plus/Downloads/_downloads:/app/_downloads  # Monta a pasta de downloads
+    stdin_open: true  # Mantém o terminal aberto para interação
+    tty: true         # Permite entrada de texto no terminal
+    restart: unless-stopped
